@@ -1,0 +1,365 @@
+.container {
+  --project-columns: 20% minmax(0, 1.4fr) minmax(0, 1fr);
+  --horizontal-dashes: repeating-linear-gradient(to right, var(--color-crosshair) 0 var(--dash-length), transparent var(--dash-length) var(--dash-period));
+  --vertical-dashes: repeating-linear-gradient(to bottom, var(--color-crosshair) 0 var(--dash-length), transparent var(--dash-length) var(--dash-period));
+  position: relative;
+  display: grid;
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.directory,
+.preview {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 2.5rem var(--content-padding);
+}
+
+.directory {
+  padding-bottom: 0;
+}
+
+.directory> :not(.projectList),
+.preview>* {
+  flex-shrink: 0;
+}
+
+.projectList,
+.preview {
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-crosshair) var(--color-background);
+}
+
+.preview {
+  overflow-y: auto;
+}
+
+.projectList:focus-visible,
+.preview:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.875rem;
+  background: var(--horizontal-dashes) left bottom / 100% var(--dash-thickness) no-repeat;
+}
+
+.sectionLabel,
+.count,
+.projectDescription,
+.projectRole,
+.eyebrow,
+.metadata,
+.directoryNote,
+.draftNote {
+  font-family: var(--font-mono);
+  font-size: calc(var(--monospace-scale) * var(--font-size-sm));
+  font-weight: 400;
+  line-height: var(--line-height-body);
+}
+
+.sectionLabel,
+.eyebrow,
+.metadata dt {
+  text-transform: uppercase;
+}
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.count,
+.eyebrow,
+.metadata dt,
+.directoryNote,
+.draftNote {
+  color: var(--color-text-muted);
+}
+
+.count {
+  font-variant-numeric: tabular-nums;
+}
+
+.projectList {
+  display: grid;
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 0.5rem;
+  margin-inline: -6px;
+  padding: 6px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  list-style: none;
+}
+
+.projectList>li {
+  min-width: 0;
+}
+
+.projectRow {
+  display: grid;
+  grid-template-columns: var(--project-columns);
+  align-items: start;
+  gap: 24px;
+  width: 100%;
+  border: 0;
+  border-left: 2px solid transparent;
+  padding: 10px;
+  color: var(--color-text-primary);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  align-items: center;
+}
+
+.projectRow.selected {
+  /* border-left-color: var(--color-accent); */
+  background: var(--color-surface);
+}
+
+.projectRow:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .projectRow:hover {
+    background: var(--color-surface-hover);
+  }
+}
+
+.selected .projectName {
+  color: var(--color-accent);
+}
+
+.thumbnail {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 11rem;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.thumbnailImage {
+  object-fit: cover;
+}
+
+.projectName {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-tight);
+  overflow-wrap: anywhere;
+}
+
+.projectText {
+  display: grid;
+  min-width: 0;
+  gap: 0.5rem;
+}
+
+.projectDescription,
+.projectRole {
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+}
+
+.directoryNote {
+  margin-top: auto;
+}
+
+.preview>.sectionLabel {
+  padding-bottom: 0.875rem;
+  background: var(--horizontal-dashes) left bottom / 100% var(--dash-thickness) no-repeat;
+}
+
+.previewIndicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--color-accent);
+}
+
+.identity {
+  padding-block: 3rem 1.5rem;
+}
+
+.previewName {
+  margin-top: 0.875rem;
+  font-size: var(--font-size-xxl);
+  overflow-wrap: anywhere;
+}
+
+.headline {
+  margin-top: 1rem;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-tight);
+}
+
+.summary {
+  max-width: 48ch;
+  color: var(--color-text-secondary);
+}
+
+.metadata {
+  display: grid;
+  gap: 1rem;
+  margin-block: 2rem;
+  border-block: 1px solid var(--color-border);
+  padding-block: 1.5rem;
+}
+
+.metadata>div {
+  display: grid;
+  grid-template-columns: 4ch minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.metadata dd {
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+}
+
+.previewActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.viewProject {
+  font-size: calc(var(--monospace-scale) * var(--font-size-sm));
+}
+
+.draftNote {
+  margin-top: 0.75rem;
+}
+
+.announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.divider {
+  position: absolute;
+  inset-block: 0;
+  left: 60%;
+  width: var(--dash-thickness);
+  background: var(--vertical-dashes);
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.crosshair {
+  position: absolute;
+  left: 50%;
+  width: var(--crosshair-width);
+  height: var(--crosshair-height);
+  color: var(--color-crosshair);
+  transform: translate(-50%, -50%);
+}
+
+.crosshair:first-child {
+  top: 0;
+}
+
+.crosshair:last-child {
+  top: 100%;
+}
+
+.crosshair::before,
+.crosshair::after {
+  position: absolute;
+  content: "";
+  background: currentColor;
+}
+
+.crosshair::before {
+  top: 50%;
+  width: 100%;
+  height: var(--crosshair-stroke);
+  transform: translateY(-50%);
+}
+
+.crosshair::after {
+  left: 50%;
+  width: var(--crosshair-stroke);
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 64rem) {
+  .container {
+    display: block;
+    flex: 0 0 auto;
+    min-height: 100%;
+  }
+
+  .directory,
+  .preview {
+    padding-block: 2rem;
+  }
+
+  .projectList {
+    flex: none;
+    margin-block: 1.5rem;
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+
+  .preview {
+    overflow: visible;
+    background: var(--horizontal-dashes) left top / 100% var(--dash-thickness) no-repeat;
+  }
+
+  .identity {
+    padding-top: 2rem;
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+@media (max-width: 40rem) {
+  .projectRow {
+    grid-template-columns: minmax(0, 7rem) minmax(0, 1fr);
+  }
+
+  .thumbnail {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .projectText {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .projectRole {
+    grid-column: 2;
+    grid-row: 2;
+    color: var(--color-text-muted);
+  }
+}

@@ -1,0 +1,218 @@
+.container {
+  --horizontal-dashes: repeating-linear-gradient(to right, var(--color-crosshair) 0 var(--dash-length), transparent var(--dash-length) var(--dash-period));
+  --vertical-dashes: repeating-linear-gradient(to bottom, var(--color-crosshair) 0 var(--dash-length), transparent var(--dash-length) var(--dash-period));
+  position: relative;
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  min-width: 0;
+  min-height: 0;
+  padding: 3rem var(--content-padding);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-crosshair) var(--color-background);
+}
+
+.panel:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.panelContent {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.sectionLabel,
+.smallLabel,
+.action,
+.copyStatus,
+.note {
+  font-family: var(--font-mono);
+  font-size: calc(var(--monospace-scale) * var(--font-size-sm));
+  font-weight: 400;
+  line-height: var(--line-height-body);
+}
+
+.sectionLabel {
+  padding-bottom: 0.875rem;
+  background: var(--horizontal-dashes) left bottom / 100% var(--dash-thickness) no-repeat;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.sectionLabel > span {
+  margin-inline: 0.25rem;
+  color: var(--color-text-muted);
+}
+
+.title {
+  margin-top: 1.5rem;
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 56ch;
+  margin-top: 1rem;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.work {
+  margin-top: 2.5rem;
+}
+
+.smallLabel {
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.workList {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  list-style: none;
+  font-size: var(--font-size-sm);
+}
+
+
+.email {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 1.5rem;
+  font-size: var(--font-size-lg);
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.email:hover {
+  color: var(--color-accent);
+}
+
+.email:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.actions,
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.actions {
+  margin-top: 1.25rem;
+}
+
+.action {
+  background: transparent;
+}
+
+.copyStatus {
+  min-height: 1.6em;
+  margin-top: 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+.messageGuide {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.guideList {
+  display: grid;
+  gap: 0.625rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.guideList li::marker {
+  color: var(--color-text-muted);
+}
+
+.note {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+}
+
+.socials {
+  margin-top: 2rem;
+}
+
+.divider {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: var(--dash-thickness);
+  background: var(--vertical-dashes);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.divider::before,
+.divider::after {
+  position: absolute;
+  left: 50%;
+  width: var(--crosshair-width);
+  height: var(--crosshair-height);
+  background:
+    linear-gradient(var(--color-crosshair), var(--color-crosshair)) center / 100% var(--crosshair-stroke) no-repeat,
+    linear-gradient(var(--color-crosshair), var(--color-crosshair)) center / var(--crosshair-stroke) 100% no-repeat;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.divider::before {
+  top: 0;
+}
+
+.divider::after {
+  top: 100%;
+}
+
+@media (max-width: 48rem) {
+  .container {
+    display: block;
+    flex: 0 0 auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+
+  .panel {
+    padding-block: 2rem;
+    overflow: visible;
+  }
+
+  .panelContent {
+    max-width: none;
+  }
+
+  .panel + .panel {
+    background: var(--horizontal-dashes) left top / 100% var(--dash-thickness) no-repeat;
+  }
+
+  .divider {
+    display: none;
+  }
+}

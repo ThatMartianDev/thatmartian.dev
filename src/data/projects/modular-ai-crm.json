@@ -1,0 +1,62 @@
+{
+  "gallery": [
+    {
+      "src": "/images/crm/crm_01.webp",
+      "alt": "CRM orders table with an AI assistant for working with customer records",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/crm/crm_02.webp",
+      "alt": "CRM lead detail view with linked records and an activity history",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/crm/crm_03.webp",
+      "alt": "CRM task list showing statuses, due dates, linked records, and assignees",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/crm/crm_04.webp",
+      "alt": "CRM orders table showing order amounts, statuses, contacts, and due dates",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/crm/crm_05.webp",
+      "alt": "CRM notes displayed as cards linked to customer records",
+      "width": 1838,
+      "height": 1224
+    }
+  ],
+  "overview": {
+    "introduction": {
+      "title": "A workspace that adapts to the work.",
+      "paragraphs": [
+        "Modular AI CRM is a configurable CRM concept combining flexible views, dynamic schemas, and AI-assisted actions. It explores how customer workflows can fit different ways of organizing information."
+      ]
+    },
+    "solution": {
+      "title": "The solution",
+      "paragraphs": [
+        "The concept separates the structure of customer information from the way teams view and act on it. Configurable views and dynamic schemas provide flexibility, while AI-assisted actions support work around those records."
+      ]
+    },
+    "capabilities": [
+      {
+        "title": "Configurable views",
+        "description": "Organize customer information through views suited to different workflows."
+      },
+      {
+        "title": "Dynamic schemas",
+        "description": "Explore adaptable record structures rather than a single fixed customer model."
+      },
+      {
+        "title": "AI-assisted actions",
+        "description": "Bring AI assistance into actions around customer information."
+      }
+    ]
+  }
+}

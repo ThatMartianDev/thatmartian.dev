@@ -1,0 +1,44 @@
+{
+  "gallery": [
+    {
+      "src": "/images/awsd/awsd_01.png",
+      "alt": "AWSD Deploy CLI live deployment",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/awsd/awsd_02.png",
+      "alt": "AWSD Deploy CLI using --dry-run",
+      "width": 1838,
+      "height": 1224
+    }
+  ],
+  "overview": {
+    "introduction": {
+      "title": "From the terminal to the web.",
+      "paragraphs": [
+        "AWSD Deploy CLI is a Go-based command-line tool for deploying single-page applications to Amazon S3 and serving them through CloudFront."
+      ]
+    },
+    "solution": {
+      "title": "The solution",
+      "paragraphs": [
+        "The tool brings single-page application deployment into a terminal workflow, connecting S3 hosting with CloudFront delivery. It focuses on deployment tooling rather than adding another application interface."
+      ]
+    },
+    "capabilities": [
+      {
+        "title": "Terminal-first deployment",
+        "description": "Deploy single-page applications through a command-line workflow."
+      },
+      {
+        "title": "S3 hosting",
+        "description": "Use Amazon S3 as the destination for application assets."
+      },
+      {
+        "title": "CloudFront delivery",
+        "description": "Serve the deployed application through Amazon CloudFront."
+      }
+    ]
+  }
+}

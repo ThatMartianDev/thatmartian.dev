@@ -1,0 +1,78 @@
+.root {
+  position: relative;
+  min-width: min-content;
+}
+
+.trigger {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  color: var(--color-text-primary);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.popup {
+  position: absolute;
+  bottom: 100%;
+  z-index: 20;
+  width: min(21rem, calc(100vw - 2 * var(--shell-gutter)));
+  padding-bottom: 0.75rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+  text-align: left;
+  white-space: normal;
+}
+
+.surface {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+}
+
+.start {
+  left: 0;
+}
+
+.center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.end {
+  right: 0;
+}
+
+@media (max-width: 64rem) {
+  .center {
+    left: 0;
+    transform: none;
+  }
+}
+
+@media (max-width: 30rem) {
+  .end {
+    right: auto;
+    left: 0;
+  }
+}

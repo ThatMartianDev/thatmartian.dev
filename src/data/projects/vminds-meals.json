@@ -1,0 +1,55 @@
+{
+  "gallery": [
+    {
+      "src": "/images/meals/meals_01.webp",
+      "alt": "Mobile meal-planning screens showing the home page, meal preferences, and a generated recipe",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/meals/meals_02.webp",
+      "alt": "Mobile screens showing AI-assisted recipe changes, occasion planning, and guided cooking steps",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/meals/meals_02-1.webp",
+      "alt": "Mobile screens showing lunchbox planning, the community recipe feed, and a weekly meal schedule",
+      "width": 1838,
+      "height": 1224
+    }
+  ],
+  "overview": {
+    "introduction": {
+      "title": "Less deciding. More cooking.",
+      "paragraphs": [
+        "vminds Meals brings meal suggestions, saved recipes, shopping lists, and guided cooking into one workflow. It connects the decision about what to eat with the practical steps of preparing it."
+      ]
+    },
+    "solution": {
+      "title": "The solution",
+      "paragraphs": [
+        "Instead of treating recipe discovery, planning, and preparation as separate tasks, the application brings them together. AI-assisted suggestions provide a starting point, saved recipes help build a personal collection, and shopping lists connect meal choices to the ingredients needed.",
+        "Guided cooking carries the selected recipe into the kitchen, keeping preparation part of the same experience."
+      ]
+    },
+    "capabilities": [
+      {
+        "title": "Meal inspiration",
+        "description": "Explore AI-assisted meal suggestions as a starting point for deciding what to cook."
+      },
+      {
+        "title": "Recipes worth keeping",
+        "description": "Save recipes to return to when planning another meal."
+      },
+      {
+        "title": "From recipe to shopping list",
+        "description": "Bring shopping lists into the meal-planning workflow."
+      },
+      {
+        "title": "Guided cooking",
+        "description": "Continue from choosing a meal to preparing it with recipe guidance."
+      }
+    ]
+  }
+}

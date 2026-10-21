@@ -1,0 +1,130 @@
+.shell {
+	position: relative;
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	min-width: 0;
+	height: 100svh;
+	height: 100dvh;
+	min-height: 0;
+	padding-inline: var(--shell-gutter);
+	color: var(--color-text-primary);
+	background: var(--color-background);
+	font-family: var(--font-sans);
+	letter-spacing: 0;
+	color-scheme: dark;
+
+	background-image: radial-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+	background-size: 10px 10px;
+	mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 88%, transparent 100%);
+}
+
+.shell>header,
+.shell>footer {
+	flex-shrink: 0;
+}
+
+.content {
+	position: relative;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-width: 0;
+	min-height: 0;
+}
+
+.contentInner {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-width: 0;
+	min-height: 0;
+	overflow: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-crosshair) var(--color-background);
+}
+
+.frame {
+	--horizontal-dashes: repeating-linear-gradient(to right, var(--color-border) 0 var(--dash-length), transparent var(--dash-length) var(--dash-period));
+	--vertical-dashes: repeating-linear-gradient(to bottom, var(--color-border) 0 var(--dash-length), transparent var(--dash-length) var(--dash-period));
+	position: absolute;
+	inset: 0;
+	background:
+		var(--horizontal-dashes) left top / 100% var(--dash-thickness) no-repeat,
+		var(--horizontal-dashes) left bottom / 100% var(--dash-thickness) no-repeat,
+		var(--vertical-dashes) left top / var(--dash-thickness) 100% no-repeat,
+		var(--vertical-dashes) right top / var(--dash-thickness) 100% no-repeat;
+	pointer-events: none;
+	user-select: none;
+}
+
+.crosshair {
+	position: absolute;
+	width: var(--crosshair-width);
+	height: var(--crosshair-height);
+	color: var(--color-crosshair);
+	transform: translate(-50%, -50%);
+}
+
+.crosshair::before,
+.crosshair::after {
+	position: absolute;
+	content: "";
+	background: currentColor;
+}
+
+.crosshair::before {
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: var(--crosshair-stroke);
+	transform: translateY(-50%);
+}
+
+.crosshair::after {
+	top: 0;
+	left: 50%;
+	width: var(--crosshair-stroke);
+	height: 100%;
+	transform: translateX(-50%);
+}
+
+.topLeft {
+	top: 0;
+	left: 0;
+}
+
+.topRight {
+	top: 0;
+	left: 100%;
+}
+
+.bottomLeft {
+	top: 100%;
+	left: 0;
+}
+
+.bottomRight {
+	top: 100%;
+	left: 100%;
+}
+
+.skipLink {
+	position: absolute;
+	top: 0.5rem;
+	left: var(--shell-gutter);
+	z-index: 10;
+	padding: 0.75rem;
+	color: var(--color-background);
+	background: var(--color-text-primary);
+	font-family: var(--font-mono);
+	font-size: var(--font-size-sm);
+	transform: translateY(-200%);
+}
+
+.skipLink:focus {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+	transform: translateY(0);
+}

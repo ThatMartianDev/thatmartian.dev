@@ -1,0 +1,84 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  width: fit-content;
+  border: 0;
+  border-radius: 0;
+  padding: 0.5em;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  font-weight: 400;
+  line-height: var(--line-height-tight);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.default {
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+}
+
+.nav {
+  color: var(--color-text-muted);
+  background: transparent;
+}
+
+.nav.active {
+  color: var(--color-text-primary);
+}
+
+.label {
+  display: inline-block;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-align: start;
+}
+
+.bracket,
+.icon,
+.status {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.icon {
+  justify-content: center;
+}
+
+.icon > svg {
+  width: 1em;
+  height: 1em;
+}
+
+.active .index {
+  padding-inline: 0.15em;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  font-weight: 700;
+}
+
+.active .marker {
+  margin-inline-start: 0.5em;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .button:hover:not(:disabled) {
+    color: var(--color-text-primary);
+    background: var(--color-surface-hover);
+  }
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

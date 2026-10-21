@@ -1,0 +1,50 @@
+{
+  "gallery": [
+    {
+      "src": "/images/solo/solo_01.png",
+      "alt": "vminds Solo mobile screens showing the AI model toolbox, custom agent library, and agent configuration",
+      "width": 1838,
+      "height": 1224
+    },
+    {
+      "src": "/images/solo/solo_02.png",
+      "alt": "vminds Solo mobile screens showing a model chat, a branching visual agent workflow, and navigation with recent sessions",
+      "width": 1838,
+      "height": 1224
+    }
+  ],
+  "overview": {
+    "introduction": {
+      "title": "Many models. One workspace.",
+      "paragraphs": [
+        "vminds Solo is an AI aggregator that brings more than 200 models into one workspace. Users can chat with models and work across image, video, music, and other categories, then go further by creating custom agents and building workflows.",
+        "My contribution focused on UX design, frontend development, and deployment on AWS and Azure. The frontend brings model discovery, conversations, agent configuration, and a visual workflow builder into a consistent, multilingual interface."
+      ]
+    },
+    "solution": {
+      "title": "The solution",
+      "paragraphs": [
+        "Solo connects model discovery with practical ways to use AI. A toolbox provides a starting point for finding a model and opening a session, while a custom agent library lets users define reusable assistants with their own personality, language, and response style.",
+        "Agents can also become building blocks in a visual workflow. Users connect steps on a canvas, create branching paths, and run the workflow with a prompt, bringing repeatable multi-step tasks into the same workspace as individual conversations."
+      ]
+    },
+    "capabilities": [
+      {
+        "title": "200+ AI models",
+        "description": "Explore and use models across chat, image, video, music, and other categories through a shared workspace."
+      },
+      {
+        "title": "Custom agents",
+        "description": "Create reusable agents with configurable personalities, languages, and response styles, then start conversations or use them in workflows."
+      },
+      {
+        "title": "Visual workflows",
+        "description": "Connect agents on a visual canvas, arrange branching paths, and run a workflow from a prompt."
+      },
+      {
+        "title": "Multilingual interface",
+        "description": "Support multiple interface languages through internationalization and localization with react-i18next."
+      }
+    ]
+  }
+}

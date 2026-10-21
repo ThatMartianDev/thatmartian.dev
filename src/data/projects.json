@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "vminds-meals",
+    "thumbnail": "/images/meals/meals_01.webp",
+    "name": "vminds Meals",
+    "category": "Web application",
+    "description": "AI-assisted meal planning that brings recipe suggestions, saved recipes, shopping lists, and guided cooking into one workflow.",
+    "headline": "Less deciding. More cooking.",
+    "summary": "Meal suggestions, saved recipes, shopping lists, and guided cooking brought together in one workflow.",
+    "role": "Full-Stack Product Engineer",
+    "stack": ["Next.js", "TypeScript", "Express", "Prisma", "PostgreSQL", "Azure"],
+    "url": {"text": "Try it out", "href": "https://meals.vminds.ai"}
+  },
+  {
+    "slug": "modular-ai-crm",
+    "thumbnail": "/images/crm/crm_01.webp",
+    "name": "Modular AI CRM",
+    "category": "SaaS platform",
+    "description": "A configurable CRM concept with flexible views, dynamic schemas, and AI-assisted actions for managing customer workflows.",
+    "headline": "A workspace that adapts to the work.",
+    "summary": "A modular CRM concept combining configurable views, dynamic schemas, and AI-assisted actions.",
+    "role": "Architecture & full-stack development",
+    "stack": ["Next.js", "FastAPI", "Python", "Prisma", "Supabase", "LLMs"],
+    "url": {"text": "Join Beta", "href": "https://modular.vminds.ai"}
+  },
+  {
+    "slug": "vminds-solo",
+    "thumbnail": "/images/solo/solo_01.png",
+    "name": "vminds Solo",
+    "category": "AI platform",
+    "description": "An AI workspace with access to 200+ models for chat, images, video, music, and more, alongside custom agents and visual workflows.",
+    "headline": "Many models. One workspace.",
+    "summary": "Explore and use 200+ AI models, create custom agents, and connect them into workflows you can build and run from one workspace.",
+    "role": "UX design, frontend development & deployment",
+    "stack": ["React", "TypeScript", "Vite", "React Router", "Zustand", "React Flow", "react-i18next", "Firebase", "AWS", "Azure"],
+    "url": {"text": "Try it out", "href": "https://beta.vminds.ai"}
+  },
+  {
+    "slug": "awsd-deploy-cli",
+    "thumbnail": "/images/awsd/awsd_01.png",
+    "name": "AWSD Deploy CLI",
+    "category": "CLI tooling",
+    "description": "A Go-based command-line tool for deploying single-page applications to Amazon S3 and serving them through CloudFront.",
+    "headline": "From the terminal to the web.",
+    "summary": "A command-line tool for deploying single-page applications to Amazon S3 and CloudFront.",
+    "role": "Creator & maintainer",
+    "stack": ["Go", "AWS SDK", "S3", "CloudFront"],
+    "url": {"text": "GitHub", "href": "https://github.com/ThatMartianDev/awsd"}
+  }
+]
