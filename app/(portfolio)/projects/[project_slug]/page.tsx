@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, getProjects } from "@/src/data/projects";
+import { createPageMetadata } from "@/src/helpers/metadata";
 import ProjectPage from "@/src/ui/pages/Projects/ProjectPage/ProjectPage";
 
 export function generateStaticParams() {
@@ -15,10 +16,11 @@ export async function generateMetadata({
 
   if (!project) notFound();
 
-  return {
-    title: `${project.name} | ThatMartianDev`,
-    description: project.description,
-  };
+  return createPageMetadata(
+    `${project.name} | ThatMartianDev`,
+    project.description,
+    `/projects/${project.slug}`,
+  );
 }
 
 export default async function ProjectRoute({
