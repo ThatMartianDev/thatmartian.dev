@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project, ProjectSummary } from "@/src/data/projectTypes";
 import Button from "@/src/ui/components/micro/Button/Button";
+import Tooltip from "@/src/ui/components/micro/Tooltip/Tooltip";
 import ProjectGallery from "./ProjectGallery/ProjectGallery";
 import Styles from "./ProjectPage.module.css";
 
@@ -118,18 +119,17 @@ export default function ProjectPage({
             aria-current="location"
             className={`${Styles.action} ${Styles.currentTab}`}
           />
-          <Button
-            text="Case study"
-            disabled
-            title="Case study coming soon"
-            className={Styles.action}
-          />
-          <Button
-            text="Architecture"
-            disabled
-            title="Architecture coming soon"
-            className={Styles.action}
-          />
+          {["Case study", "Architecture"].map((label) => (
+            <Tooltip
+              key={label}
+              trigger={<span>[ {label} ]</span>}
+              triggerLabel={`${label} (coming soon)`}
+              className={Styles.pendingTab}
+              portal
+            >
+              Coming soon
+            </Tooltip>
+          ))}
         </nav>
 
         <article

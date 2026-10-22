@@ -50,6 +50,15 @@
   background: var(--color-background);
 }
 
+.portal {
+  position: fixed;
+  bottom: auto;
+  max-width: calc(100vw - 1rem);
+  max-height: calc(100dvh - 1rem);
+  padding-bottom: 0;
+  overflow-y: auto;
+}
+
 .start {
   left: 0;
 }
@@ -67,6 +76,10 @@
   .center {
     left: 0;
     transform: none;
+  }
+
+  .surface {
+    background-color: var(--color-surface);
   }
 }
 

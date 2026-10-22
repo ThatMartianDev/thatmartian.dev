@@ -17,6 +17,13 @@ const cairoFormatter = new Intl.DateTimeFormat("en-GB", {
   timeZoneName: "short",
 });
 
+const shortCairoFormatter = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Africa/Cairo",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+
 export default function Footer({ available = true }: FooterProps) {
   const [timestamp, setTimestamp] = useState<number | null>(null);
 
@@ -27,19 +34,22 @@ export default function Footer({ available = true }: FooterProps) {
   }, []);
 
   const hours = timestamp === null ? null : getWorkingHours(timestamp);
+  const cairoTime = timestamp === null ? "--:--" : shortCairoFormatter.format(timestamp);
+  const timezone = timestamp === null
+    ? ""
+    : cairoFormatter.formatToParts(timestamp).find((part) => part.type === "timeZoneName")?.value;
 
   return (
     <footer className={Styles.footer}>
       <Tooltip
         className={Styles.location}
+        triggerLabel="Location: Cairo, Egypt. Working worldwide."
         trigger={
-          <>
-            [ LOC: CAIRO, EG{" "}
-            <span className={Styles.coordinates}>
-              &lt;30.04&#176;N, 31.23&#176;E&gt;
-            </span>{" "}
-            ]
-          </>
+          <span>
+            [ LOC<span className={Styles.value}>: CAIRO<span className={Styles.country}>, EG</span>
+              <span className={Styles.coordinates}> &lt;30.04&#176;N, 31.23&#176;E&gt;</span>
+            </span> ]
+          </span>
         }
       >
         <p className={Styles.popupTitle}>Based in Cairo. Working globally.</p>
@@ -58,9 +68,10 @@ export default function Footer({ available = true }: FooterProps) {
       <Tooltip
         className={Styles.clock}
         align="center"
+        triggerLabel={`Cairo time: ${timestamp === null ? "loading" : cairoFormatter.format(timestamp)}. View working hours.`}
         trigger={
-          <>
-            [ TIME:{" "}
+          <span>
+            [ TIME<span className={Styles.value}>:{" "}
             <time
               dateTime={
                 timestamp === null
@@ -68,10 +79,10 @@ export default function Footer({ available = true }: FooterProps) {
                   : new Date(timestamp).toISOString()
               }
             >
-              {timestamp === null ? "--:--" : cairoFormatter.format(timestamp)}
+              {cairoTime}<span className={Styles.timezone}>{timezone ? ` ${timezone}` : ""}</span>
             </time>
-            ]
-          </>
+            </span> ]
+          </span>
         }
       >
         <p className={Styles.popupTitle}>Flexible scheduling window</p>
@@ -79,6 +90,14 @@ export default function Footer({ available = true }: FooterProps) {
           I can arrange my working hours within this range.
         </p>
         <dl className={Styles.details}>
+          <div>
+            <dt>Current time in Cairo</dt>
+            <dd>
+              <time dateTime={timestamp === null ? undefined : new Date(timestamp).toISOString()}>
+                {timestamp === null ? "--:--" : cairoFormatter.format(timestamp)}
+              </time>
+            </dd>
+          </div>
           <div>
             <dt>Cairo{hours ? ` (${hours.zone})` : ""}</dt>
             <dd>08:00 - 23:59</dd>
@@ -93,14 +112,15 @@ export default function Footer({ available = true }: FooterProps) {
       <Tooltip
         className={Styles.status}
         align="end"
+        triggerLabel={available ? "Status: available for new opportunities." : "Status: not currently available."}
         trigger={
-          <>
-            [ STATUS:{" "}
-            <span className={available ? Styles.available : Styles.unavailable}>
-              {available ? "AVAILABLE" : "UNAVAILABLE"}
-            </span>{" "}
-            ]
-          </>
+          <span>
+            [ STATUS<span className={Styles.value}>:{" "}
+              <span className={available ? Styles.available : Styles.unavailable}>
+                {available ? "AVAILABLE" : "UNAVAILABLE"}
+              </span>
+            </span> ]
+          </span>
         }
       >
         <p className={Styles.popupTitle}>

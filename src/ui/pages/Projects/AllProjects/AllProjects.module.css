@@ -162,6 +162,84 @@
   object-fit: cover;
 }
 
+.projectCards {
+  display: none;
+  gap: 1.25rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projectCards > li {
+  min-width: 0;
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  text-decoration: none;
+}
+
+.projectCard:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .projectCard:hover {
+    border-color: var(--color-crosshair);
+    background: var(--color-surface);
+  }
+}
+
+.cardThumbnail {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1.25rem;
+}
+
+.cardRole,
+.cardAction {
+  font-family: var(--font-mono);
+  font-size: calc(var(--monospace-scale) * var(--font-size-sm));
+  line-height: var(--line-height-body);
+  overflow-wrap: anywhere;
+}
+
+.cardRole {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.cardAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  text-transform: uppercase;
+}
+
+.cardAction > span {
+  color: var(--color-accent);
+}
+
 .projectName {
   font-size: var(--font-size-md);
   line-height: var(--line-height-tight);
@@ -314,27 +392,24 @@
     display: block;
     flex: 0 0 auto;
     min-height: 100%;
+    overflow: visible;
   }
 
-  .directory,
-  .preview {
-    padding-block: 2rem;
+  .directory {
+    padding: 1rem;
   }
 
   .projectList {
-    flex: none;
-    margin-block: 1.5rem;
-    overflow: visible;
-    scrollbar-gutter: auto;
+    display: none;
+  }
+
+  .projectCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .preview {
-    overflow: visible;
-    background: var(--horizontal-dashes) left top / 100% var(--dash-thickness) no-repeat;
-  }
-
-  .identity {
-    padding-top: 2rem;
+    display: none;
   }
 
   .divider {
@@ -343,23 +418,7 @@
 }
 
 @media (max-width: 40rem) {
-  .projectRow {
-    grid-template-columns: minmax(0, 7rem) minmax(0, 1fr);
-  }
-
-  .thumbnail {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-  }
-
-  .projectText {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .projectRole {
-    grid-column: 2;
-    grid-row: 2;
-    color: var(--color-text-muted);
+  .projectCards {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

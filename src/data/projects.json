@@ -21,7 +21,7 @@
     "summary": "A modular CRM concept combining configurable views, dynamic schemas, and AI-assisted actions.",
     "role": "Architecture & full-stack development",
     "stack": ["Next.js", "FastAPI", "Python", "Prisma", "Supabase", "LLMs"],
-    "url": {"text": "Join Beta", "href": "https://modular.vminds.ai"}
+    "url": {"text": "Join Beta", "href": "https://crm.thatmartian.dev"}
   },
   {
     "slug": "vminds-solo",

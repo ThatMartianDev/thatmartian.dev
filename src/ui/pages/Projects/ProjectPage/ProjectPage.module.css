@@ -149,14 +149,36 @@
 
 .tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-crosshair) var(--color-background);
   gap: 0.5rem 1rem;
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 0.875rem;
 }
 
 .tabs .action {
+  flex-shrink: 0;
   background: transparent;
+}
+
+.pendingTab {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: calc(var(--monospace-scale) * var(--font-size-sm));
+  line-height: var(--line-height-body);
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.pendingTab > button {
+  min-height: 0;
+  padding: 0.5em;
+  white-space: nowrap;
 }
 
 .currentTab {
@@ -256,7 +278,7 @@
 
   .sidebar,
   .content {
-    padding-block: 2rem;
+    padding: 1rem;
   }
 
   .sidebar,

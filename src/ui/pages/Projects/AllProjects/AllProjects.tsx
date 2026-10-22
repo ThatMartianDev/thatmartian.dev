@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/src/ui/components/micro/Button/Button";
 import Styles from "./AllProjects.module.css";
 import type { ProjectSummary } from "@/src/data/projectTypes";
@@ -61,6 +62,39 @@ export default function AllProjects({ projects }: AllProjectsProps) {
               </li>
             );
           })}
+        </ol>
+
+        <ol className={Styles.projectCards} aria-label="Projects">
+          {projects.map((project) => (
+            <li key={project.slug}>
+              <Link
+                href={`/projects/${project.slug}`}
+                className={Styles.projectCard}
+                aria-labelledby={`project-card-${project.slug}`}
+              >
+                <span className={Styles.cardThumbnail}>
+                  <Image
+                    src={project.thumbnail}
+                    alt=""
+                    fill
+                    sizes="(max-width: 40rem) calc(100vw - 6rem), (max-width: 64rem) calc(50vw - 5rem), 1px"
+                    className={Styles.thumbnailImage}
+                  />
+                </span>
+                <div className={Styles.cardBody}>
+                  <p className={Styles.eyebrow}>{project.category}</p>
+                  <h2 id={`project-card-${project.slug}`} className={Styles.projectName}>
+                    {project.name}
+                  </h2>
+                  <p className={Styles.projectDescription}>{project.description}</p>
+                  <p className={Styles.cardRole}>{project.role}</p>
+                  <span className={Styles.cardAction} aria-hidden="true">
+                    [ View project ]
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
         </ol>
       </section>
 
